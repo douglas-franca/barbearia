@@ -111,11 +111,15 @@ public class Barbearia {
     }
     System.out.println("\n");
 
-    System.out.println("✂️ Barbeiros:");
+    System.out.println("✂️  Cadeiras de Corte:");
     for (Barbeiro b : barbeiros) {
+      System.out.print(b.getName() + " [");
       if (this.barbeiroCaixa != b) {
-        System.out.println(b.getName() + " - " + b.getStatus() + (b.getClienteAtual() != null ? " (" + b.getClienteAtual().getName() + ")" : ""));
+        System.out.print(b.getStatus() + (b.getClienteAtual() != null ? " (" + b.getClienteAtual().getName() + ")" : ""));
+      } else {
+        System.out.print("  ");
       }
+      System.out.println("] ");
     }
 
     System.out.println("\n💰 Caixa:");
