@@ -39,8 +39,8 @@ public class Barbeiro extends Thread {
     } catch (InterruptedException e) {
       e.printStackTrace();
     } finally {
-      barbearia.getCaixa().release();
       barbearia.setBarbeiroCaixa(null);
+      barbearia.getCaixa().release();
       barbearia.sair();
       this.barbearia.imprimirBarbearia();
     }
