@@ -1,11 +1,13 @@
 package barbearia;
 
 public class Barbeiro extends Thread {
+  private static final int TEMPO_CORTE_MIN = 5000;
+  private static final int VARIACAO_TEMPO_CORTE = 10000;
+  private static final int TEMPO_PAGAMENTO_MIN = 2000;
+  private static final int VARIACAO_TEMPO_PAGAMENTO = 3000;
+
   private Barbearia barbearia;
   private String status = "Disponível";
-
-  // private int tempoCorte = (int)(Math.random() * 10000) + 5000;
-
   private Cliente clienteAtual;
 
   public Barbeiro(String name, Barbearia barbearia) {
@@ -18,7 +20,7 @@ public class Barbeiro extends Thread {
     this.barbearia.imprimirBarbearia();
 
     try {
-      Thread.sleep((long) (Math.random() * 10000 + 5000));
+      Thread.sleep((long) (Math.random() * VARIACAO_TEMPO_CORTE + TEMPO_CORTE_MIN));
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
@@ -35,7 +37,7 @@ public class Barbeiro extends Thread {
       this.barbearia.setBarbeiroCaixa(this);
       this.barbearia.imprimirBarbearia();
 
-      Thread.sleep((long) (Math.random() * 5000 + 2000));
+      Thread.sleep((long) (Math.random() * VARIACAO_TEMPO_PAGAMENTO + TEMPO_PAGAMENTO_MIN));
     } catch (InterruptedException e) {
       e.printStackTrace();
     } finally {

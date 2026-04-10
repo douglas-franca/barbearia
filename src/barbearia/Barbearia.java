@@ -72,7 +72,6 @@ public class Barbearia {
     this.barbeiroCaixa = barbeiro;
   }
 
-
   // ==== Helpers ====
 
   public void cleanConsole() {
